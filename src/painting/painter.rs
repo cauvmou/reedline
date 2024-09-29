@@ -215,7 +215,8 @@ impl Painter {
 
         // Moving the start position of the cursor based on the size of the required lines
         if self.large_buffer || is_reset() {
-            self.prompt_start_row = 0;
+            // TODO: Figure out why this fucks me up
+            // self.prompt_start_row = 0;
         } else if required_lines >= remaining_lines {
             let extra = required_lines.saturating_sub(remaining_lines);
             self.queue_universal_scroll(extra)?;
